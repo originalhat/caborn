@@ -1,0 +1,16 @@
+!!!
+%html
+  %script{src:'//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'}
+%body
+  .container
+:javascript
+  $(document).ready(function() {
+    $.get('/api/photos', function(data) {
+      console.log(data)
+      $.each(data, function(index, value) {
+        console.log(value['photo_url']);
+        $('.container').append("<div><img src=\"" + value['photo_url'] + "\"/></div>")
+      });
+    });
+
+  });
